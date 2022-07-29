@@ -1,2 +1,2 @@
 test = "romenoli"
-print(test)
+print(test * 2)
