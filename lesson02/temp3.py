@@ -1,1 +1,2 @@
-test romenoli
+test = "romenoli"
+print(test)
