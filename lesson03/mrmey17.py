@@ -55,3 +55,5 @@ print('\n\tЗАДАЧА НОМЕР 2\n')
 task_two(str(random.randint(1000, 9999)))
 print('\n\tЗАДАЧА НОМЕР 3\n')
 task_three(input('Введите переменную 1: '), input('Введите переменную 2: '))
+
+#TESTING GITHUB 2
