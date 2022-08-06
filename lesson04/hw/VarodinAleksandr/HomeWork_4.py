@@ -1,4 +1,4 @@
-Task 1
+# Task 1
 
 year = int(input())
 if year == 365:
@@ -8,7 +8,7 @@ elif year == 366:
 else:
     print("Wrong number!")
 
-# # Task 2
+# Task 2
 
 year = int(input())
 month = int(input())
@@ -61,7 +61,7 @@ if (a + b) > c and (b + c) > a and (a + c) > b:
 else:
     print("wrong triangle")
 
-# # Task 5(0)
+# Task 5(0)
 
 k = int(input())
 day_in_week = k % 7
@@ -82,7 +82,7 @@ else:
     n = 'sunday'
 print(n)
 
-# # Task 5(1)
+# Task 5(1)
 
 day_dict = {
     1: 'monday',
