@@ -55,19 +55,40 @@
 
 #4) Задано три довільних числа. Визначити, чи можна побудувати трикутник з такими довжинами сторін; Якщо так, то видрукувати його периметр та площу.
 
-a, b, c = int(input("Enter first side a: ")), int(input("Enter second side b: ")), int(input("enter third side c: "))
-if a**2+b**2==c**2:
-    print("yes")
-    P = a + b + c
-    p = P / 2
-    S = (p*(p-a)*(p-b)*(p-c) ** 0.5)
-    print("Perimeter = {0}".format(p))
-    print("Area of triangle = {0}".format(S))
+# a, b, c = int(input("Enter first side a: ")), int(input("Enter second side b: ")), int(input("enter third side c: "))
+# if a**2+b**2==c**2:
+#     print("yes")
+#     P = a + b + c
+#     p = P / 2
+#     S = (p*(p-a)*(p-b)*(p-c) ** 0.5)
+#     print("Perimeter = {0}".format(p))
+#     print("Area of triangle = {0}".format(S))
+#
+# else:
+#     print("no, you can't")
 
-else:
-    print("no")
+# Нехай k- ціле від 1 до 365. Присвоїти цілій змінній n значення (понеділок, вівторок, …, суботу чи неділю) залежно від того , на який
+# # день тижня припадає k-й день не високосного року, в якому 1 січня - понеділок
 
+k = int(input())
+weekday = k % 7
+print(weekday)
 
+match weekday:
+    case 1:
+        print('monday')
+    case 2:
+        print('tuesday')
+    case 3:
+        print('wednesday')
+    case 4:
+        print('thursday')
+    case 5:
+        print('friday')
+    case 6:
+        print('saturday')
+    case 7:
+        print('sunday')
 
 
 
