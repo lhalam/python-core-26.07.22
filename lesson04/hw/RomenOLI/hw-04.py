@@ -17,32 +17,50 @@ def is_lipyear(year):
 # print(is_lipyear(int(input("please, input year - "))))
 
 #Ввести три значення (рік, місяць, день) у відповідні змінні. Визначити чи введені дані відповідають коректному запису дати
-year, month, day = int(input("input year  - ")), int(input("input month  - ")), int(input("input day  - "))
-
-if month in (1, 3, 5, 7, 8, 10, 12) and day == 31:
-    print("It is correct")
-elif month in (4, 6, 8, 11) and day == 30:
-    print("It is correct")
-elif month == 2:
-    if is_lipyear(year) == "It's a leap year!" and day == 29:
-        print("It is correct")
-    else:
-        print("It is not correct")
-else:
-    print("It is not correct")
+# year, month, day = int(input("input year  - ")), int(input("input month  - ")), int(input("input day  - "))
+#
+# if month in (1, 3, 5, 7, 8, 10, 12) and day == 31:
+#     print("It is correct")
+# elif month in (4, 6, 8, 11) and day == 30:
+#     print("It is correct")
+# elif month == 2:
+#     if is_lipyear(year) == "It's a leap year!" and day == 29:
+#         print("It is correct")
+#     else:
+#         print("It is not correct")
+# else:
+#     print("It is not correct")
 
 # Для довільних дійсних чисел a, b, і c визначити, чи має рівняння ax2+bx+c=0 хоча б один дійсний корінь і якщо так, то видрукувати його.
 
 # Задано три довільних числа. Визначити, чи можна побудувати трикутник з такими довжинами сторін; Якщо так, то видрукувати його периметр та площу.
-import math
-a, b, c = float(input("input a - ")), float(input("input b - ")), float(input("input c - ")),
-if a > 0 and b > 0 and c > 0:
-    print(f"периметр - {a+b+c}")
-    p = (a+b+c)/2
-    pl = math.sqrt(p*(p-a)*(p-b)*(p-c))
-    print(f"площа - {pl}")
-else:
-    print("it is not a triangle")
+# import math
+# a, b, c = float(input("input a - ")), float(input("input b - ")), float(input("input c - ")),
+# if a > 0 and b > 0 and c > 0:
+#     print(f"периметр - {a+b+c}")
+#     p = (a+b+c)/2
+#     pl = math.sqrt(p*(p-a)*(p-b)*(p-c))
+#     print(f"площа - {pl}")
+# else:
+#     print("it is not a triangle")
 
 # Нехай k- ціле від 1 до 365. Присвоїти цілій змінній n значення (понеділок, вівторок, …, суботу чи неділю) залежно від того , на який
 # день тижня припадає k-й день не високосного року, в якому 1 січня - понеділок
+k = int(input("введи число від 1 до 365 - "))
+match k%7:
+    case 1:
+        n = "понеділок"
+    case 2:
+        n = "вівторок"
+    case 3:
+        n = "середа"
+    case 4:
+        n = "четвер"
+    case 5:
+        n = "пятниця"
+    case 6:
+        n = "субота"
+    case 0:
+        n = "неділя"
+
+print(f"{k} - припадає на {n}")
