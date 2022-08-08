@@ -39,7 +39,7 @@
 #
 # #3)   Для довільних дійсних чисел a, b, і c визначити, чи має рівняння ax2+bx+c=0 хоча б один дійсний корінь і якщо так, то видрукувати його.
 #
-# import math
+# import cmath
 
 # a, b, c = int(input("Enter number a: ")), int(input("Enter number b: ")), int(input("enter number c: "))
 #
@@ -47,11 +47,25 @@
 # print(D)
 #
 # if D >= 0:
-#     sol = (-b+D**(0.5))/2/a
-#     print('Root {0}'.format(sol))
+#     sol = (-b-cmath.sqrt(d))/(2*a)
+#     sol2 = (-b+cmath.sqrt(d))/(2*a)
+#     print('Root {0}'.format(sol,sol2))
 # else:
 #     print("No roots")
 
+#4) Задано три довільних числа. Визначити, чи можна побудувати трикутник з такими довжинами сторін; Якщо так, то видрукувати його периметр та площу.
+
+a, b, c = int(input("Enter first side a: ")), int(input("Enter second side b: ")), int(input("enter third side c: "))
+if a**2+b**2==c**2:
+    print("yes")
+    P = a + b + c
+    p = P / 2
+    S = (p*(p-a)*(p-b)*(p-c) ** 0.5)
+    print("Perimeter = {0}".format(p))
+    print("Area of triangle = {0}".format(S))
+
+else:
+    print("no")
 
 
 
