@@ -73,3 +73,5 @@ def day_of_week(day_num):
     return f'The day number ({day_num}) you entered means this day of the week - {day[day_num % 7]}'
 
 print(day_of_week(int(input('Enter a day number between 1 and 365: '))))
+
+# Test commit N1 - добавил папку с дз странным образом не через pull request 😕
