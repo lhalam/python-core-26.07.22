@@ -48,8 +48,8 @@ D = b**2 - 4*a*c
 print(D)
 
 if D >= 0:
-    sol = (-b-cmath.sqrt(d))/(2*a)
-    sol2 = (-b+cmath.sqrt(d))/(2*a)
+    sol = (-b-cmath.sqrt(D))/(2*a)
+    sol2 = (-b+cmath.sqrt(D))/(2*a)
     print('Root {0}'.format(sol,sol2))
 else:
     print("No roots")
