@@ -1,6 +1,5 @@
 # # # 1) Вести значення(рік), вивести повідомлення "It's a leap year!" якщо рік високосний та "It's not a leap year!", якщо рік ні
 #
-import cmath
 
 year = int(input("Enter a year: "))
 
@@ -21,7 +20,7 @@ if year <= 2022:
     print('')
     if 1 <= month <= 12:
         print('')
-        if 1 <=  day <= 31:
+        if 1 <= day <= 31:
             print('')
             if month in [1, 3, 5, 7, 8, 10, 12] and day in range(1, 32):
                 print('')
@@ -57,7 +56,7 @@ else:
 # #4) Задано три довільних числа. Визначити, чи можна побудувати трикутник з такими довжинами сторін; Якщо так, то видрукувати його периметр та площу.
 
 a, b, c = int(input("Enter first side a: ")), int(input("Enter second side b: ")), int(input("enter third side c: "))
-if a**2+b**2==c**2:
+if a ** 2 + b ** 2 == c ** 2:
     print("yes")
     P = a + b + c
     p = P / 2
@@ -89,13 +88,6 @@ match weekday:
         print('saturday')
     case 7:
         print('sunday')
-
-
-
-
-
-
-
 
 
 
