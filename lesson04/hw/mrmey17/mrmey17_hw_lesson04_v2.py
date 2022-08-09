@@ -71,4 +71,4 @@ def day_of_week(day_num):
 
 print(day_of_week(int(input('Enter a day number between 1 and 365: '))))
 
-# запушил файл с дз напрямую, попытка сделать через pull request
+#test edit file from github UI
