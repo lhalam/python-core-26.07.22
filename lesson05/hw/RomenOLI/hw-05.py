@@ -5,21 +5,26 @@
 
 import random
 
-n = random.randint(0, 100)
-t = 1
-while t <= 10:
-    print(f"You have {11-t} shots" if (11-t)>1 else "You have last chanse")
-    user_numb = int(input("please, input your number from 0 to 100 - "))
-    if user_numb == n:
-        print(f"Yes, you WIN!!!")
-        break
-    else:
-        print("Nice try, but you didnt guess. Your number is bigger" if user_numb > n else "Nice try, but you didnt guess. Your number is smaller")
-    t += 1
-
-print(f"Random number was - {n}" if t > 10 else "It was great")
+# n = random.randint(0, 100)
+# t = 1
+# while t <= 10:
+#     print(f"You have {11-t} shots" if (11-t)>1 else "You have last chanse")
+#     user_numb = int(input("please, input your number from 0 to 100 - "))
+#     if user_numb == n:
+#         print(f"Yes, you WIN!!!")
+#         break
+#     else:
+#         print("Nice try, but you didnt guess. Your number is bigger" if user_numb > n else "Nice try, but you didnt guess. Your number is smaller")
+#     t += 1
+#
+# print(f"Random number was - {n}" if t > 10 else "It was great")
 
 # 2. Вводяться десять натуральних чисел більше 2. Порахувати, скільки серед них чисел, що кратні 5-ти. (не використовувати лісти)
+count = 0
+for i in range(10):
+    if int(input("input number >2 - ")) % 5 == 0:
+        count +=1
+print(f"there are - {count} number(s) divided 5")
 
 # 3. Вивести на екран таблицю множення (від 1 до 9).
 
