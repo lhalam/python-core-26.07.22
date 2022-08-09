@@ -25,9 +25,7 @@ if month in (1, 3, 5, 7, 8, 10, 12) and day <= 31:
 elif month in (4, 6, 8, 11) and day <= 30:
     print("It is correct date")
 elif month == 2:
-    if is_lipyear(year) == "It's a leap year!" and day <= 29:
-        print("It is correct date")
-    elif is_lipyear(year) != "It's a leap year!" and day <= 28:
+    if (is_lipyear(year) == "It's a leap year!" and day <= 29) or (is_lipyear(year) != "It's a leap year!" and day <= 28):
         print("It is correct date")
     else:
         print("It is not correct date")
@@ -49,7 +47,7 @@ else:
 
 a, b, c = float(input("введи сторону трикутника a - ")), float(input("введи сторону трикутника b - ")), float(input("введи сторону трикутника c - ")),
 if a > 0 and b > 0 and c > 0:
-    if a+b >c or a+c > b or b+c > a:
+    if a+b >c and a+c > b and b+c > a:
         print(f"периметр - {a+b+c}")
         p = (a+b+c)/2
         pl = math.sqrt(p*(p-a)*(p-b)*(p-c))
