@@ -1,13 +1,10 @@
 # ''' • Ввести значення(рік), вивести повідомлення "It's a leap year!" якщо рік
 #   високосний і "This is not a leap year!" якщо ні.'''
 
-match int(input()):
-    case 365:
-        print("This is not a leap year!")
-    case 366:
-        print("It's a leap year!")
-    case _:
-        print('Wrong number of days entered')
+if int(input()) % 4:
+    print("This is not a leap year!")
+else:
+    print("It's a leap year!")
 
 # '''  • Ввести три значення (рік, місяць, день) у відповідні змінні. Визначити
 #   чи введені дані відповідають коректному запису дати.'''
