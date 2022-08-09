@@ -1,19 +1,19 @@
-year = input("Enter a year: ")
-if (int(year)%400 == 0):
+year = int(input("Enter a year: "))
+if (year%4 == 0) and (year%100 != 0 or year%400 == 0):
     print("It's a leap year!")
 else:
     print("This is not a leap year!")
 ##########################################################################
 yy = int(input("Enter year: "))
 leap = False
-if (yy%400 == 0):
+if (yy%4 == 0) and (yy%100 != 0 and yy%400 == 0):
      leap = True
 mm = int(input("Enter month: "))
 if not (mm > 0 and mm < 13):
      print("Month is wrong!")
 else:
     dd = int(input("Enter day: "))
-    if ((mm == 1 or mm == 3 or mm == 5 or mm == 7 or mm == 8 or mm == 10 or mm == 12) and int(dd) > 31)\
+    if ((mm == 1 or mm == 3 or mm == 5 or mm == 7 or mm == 8 or mm == 10 or mm == 12) and dd > 31)\
         or (leap == False and mm == 2 and dd > 28) \
         or (leap == True and mm == 2 and dd > 29) \
         or ((mm == 4 or mm == 6 or mm == 9 or mm == 11) and dd > 30):
