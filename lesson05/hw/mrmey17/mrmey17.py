@@ -26,8 +26,19 @@ def guess_the_number():
 # guess_the_number()
 
 "2. Вводяться десять натуральних чисел більше 2. Порахувати, скільки серед них чисел, що кратні 5-ти. (не використовувати лісти)"
-count_num = 0
-for _ in range(10):
-    if not int(input('Enter number: ')) % 5:
-        count_num += 1
-print(f'Numbers that are multiples of 5: {count_num}')
+
+# count_num = 0
+# for _ in range(10):
+#     if not int(input('Enter number: ')) % 5:
+#         count_num += 1
+# print(f'Numbers that are multiples of 5: {count_num}')
+
+'3. Вивести на екран таблицю множення (від 1 до 9).'
+
+def multiplication_table(num):
+    for row in range(1, num + 1):
+        for col in range(1, num + 1):
+            print(f'{row} * {col} = {row * col}', end='\t\t')
+        print()
+# multiplication_table(9)
+
