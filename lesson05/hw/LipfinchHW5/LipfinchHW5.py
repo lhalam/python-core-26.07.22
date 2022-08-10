@@ -43,17 +43,12 @@
 #Вивести на екран «прямокутник» розміру N на M, утворений з двох видів символів.
 #Контур прямокутника повинен складатися з одного символу, а "заливка" - з іншого.
 
-side = int(input("Please Enter any Side of a Square  : "))
-i = 0
-print("Square Star Pattern")
-
-while(i < side):
-    j = 0
-    while(j < side):
-        j = j + 1
-        print('a', end = '  ')
-    i = i + 1
-    print('')
-
-
-
+sideN = int(input("Please enter first side : "))
+sideM = int(input("Please enter second side  : "))
+for i in range(1,sideM+1):
+    for j in range(1,sideN+1):
+        if i==1 or i==sideM or j==1 or j==sideN:
+            print("*", end="")
+        else:
+            print("%", end="")
+    print()
