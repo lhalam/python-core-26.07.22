@@ -74,7 +74,7 @@ while x != numP and x != numH:
     x = int(input("Enter number: "))
 print(f"Sum of numbers less then {numP} is {s}.")
 print(f"Product of numbers more then {numH} is {d}.")
-print(f"Amount of numbers between {numP} and {H} is {k}.")
+print(f"Amount of numbers between {numP} and {numH} is {k}.")
 
 # 6. Для чисел, що вводяться користувачем, визначити відсоток додатних та від’ємних чисел. При введенні числа 0 закінчити роботу.
 
