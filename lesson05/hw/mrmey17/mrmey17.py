@@ -42,3 +42,16 @@ def multiplication_table(num):
         print()
 # multiplication_table(9)
 
+'4. Вивести на екран «прямокутник» розміру N на M, утворений з двох видів символів. ' \
+'Контур прямокутника повинен складатися з одного символу, а "заливка" - з іншого.'
+
+n, m = int(input('Enter number of rows: ')), int(input('Enter number of columns: '))
+symb_a, symb_b = input('Choose symbol 1 (perimeter): '), input('Choose symbol 2 (fill): ')
+for row in range(1, n + 1):
+    if row == 1 or row == n:
+        print(symb_a * m, end='\n')
+    else:
+        if m > 1:
+            print(symb_a + symb_b * (m-2) + symb_a, end='\n')
+        else:
+            print(symb_a * m, end='\n')
