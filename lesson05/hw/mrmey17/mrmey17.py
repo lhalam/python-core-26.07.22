@@ -20,7 +20,7 @@ def guess_the_number():
         try_count -= 1
         print(f'Tries left {try_count}')
         while not try_count:
-            print('Nice try but the given number was', rand_num)
+            print('Nice try, but the hidden number was', rand_num)
             break
 
 # guess_the_number()
@@ -45,13 +45,38 @@ def multiplication_table(num):
 '4. Вивести на екран «прямокутник» розміру N на M, утворений з двох видів символів. ' \
 'Контур прямокутника повинен складатися з одного символу, а "заливка" - з іншого.'
 
-n, m = int(input('Enter number of rows: ')), int(input('Enter number of columns: '))
-symb_a, symb_b = input('Choose symbol 1 (perimeter): '), input('Choose symbol 2 (fill): ')
-for row in range(1, n + 1):
-    if row == 1 or row == n:
-        print(symb_a * m, end='\n')
-    else:
-        if m > 1:
-            print(symb_a + symb_b * (m-2) + symb_a, end='\n')
-        else:
-            print(symb_a * m, end='\n')
+# n, m = int(input('Enter number of rows: ')), int(input('Enter number of columns: '))
+# symb_a, symb_b = input('Choose symbol 1 (perimeter): '), input('Choose symbol 2 (fill): ')
+# for row in range(1, n + 1):
+#     if row == 1 or row == n:
+#         print(symb_a * m, end='\n')
+#     else:
+#         if m > 1:
+#             print(symb_a + symb_b * (m-2) + symb_a, end='\n')
+#         else:
+#             print(symb_a * m, end='\n')
+
+'''5. Дано число P і число H. Користувач вводить послідовність чисел. 
+Визначити: суму тих чисел, які менше P; добуток чисел, які більші за H; кількість чисел, що знаходяться в діапазоні
+значень від P до H. При введенні числа рівного P або H, припинити обчислення та вивести результат. 
+(не використовувати білдін функції)'''
+
+# p, h = 5, 50
+# flag = True
+# sum_less_p, mult_greater_h, nums_in_range_ph = 0, 1, 0
+#
+# while flag:
+#     n = int(input('Enter number: '))
+#     if n < p:
+#         sum_less_p += n
+#     elif n > h:
+#         mult_greater_h *= n
+#     elif n in range(p + 1, h):
+#         nums_in_range_ph += 1
+#
+#     if n == p or n == h:
+#         if mult_greater_h != 1: print(f'Multiplication numbers greater than "{h}": {mult_greater_h}')
+#         if sum_less_p != 0: print(f'Sum numbers less than "{p}": ', sum_less_p)
+#         print('Num(s) in range between "P" and "H": ', nums_in_range_ph)
+#         flag = False
+
