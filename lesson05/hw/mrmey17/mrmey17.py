@@ -80,3 +80,14 @@ def multiplication_table(num):
 #         print('Num(s) in range between "P" and "H": ', nums_in_range_ph)
 #         flag = False
 
+'6. Для чисел, що вводяться користувачем, визначити відсоток додатних та від’ємних чисел. При введенні числа 0 закінчити роботу.'
+
+num, num_greater, num_less = True, 0, 0
+while num:
+    num = int(input('Enter number: '))
+    if num > 0:
+        num_greater += 1
+    elif num < 0:
+        num_less += 1
+print(f"% of numbers greater than 0: {round(num_greater * 100 / (num_greater + num_less), 1)}%\n"
+      f"% of numbers lower than 0: {round(num_less * 100 / (num_greater + num_less), 1)}%")
