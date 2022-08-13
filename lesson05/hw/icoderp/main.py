@@ -81,7 +81,7 @@ else:
 # sum_p = 0
 # diapazon = 0
 # dobutock = 1
-# :
+# while True:
 #     user_number = int(input('Enter a number: '))
 #     if user_number == p or user_number == h:
 #         for n in number_list:
@@ -90,7 +90,7 @@ else:
 #             if p < n < h:
 #                 diapazon += 1
 #             if n > p:
-#                 while Truedobutock *= n
+#                 dobutock *= n
 #         break
 #     else:
 #         number_list.append(user_number)
