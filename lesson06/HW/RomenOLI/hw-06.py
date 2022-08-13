@@ -35,16 +35,32 @@ from random import randrange
 #3. Згенерувати 20 випадкових цілих чисел в діапазоні від -5 до 4, записати їх в список.
 # Порахувати кількість додатних, від’ємних і нульових елементів. Вивести на екран елементи списку і пораховані кількості.
 
-ls, dod, vid = [],0, 0
-for i in range(20):
-    numb = randrange(-5, 4)
-    ls.append(numb)
-    if numb > 0:
-        dod += 1
-    elif numb < 0:
-        vid += 1
+# ls, dod, vid = [],0, 0
+# for _ in range(20):
+#     numb = randrange(-5, 4)
+#     ls.append(numb)
+#     if numb > 0:
+#         dod += 1
+#     elif numb < 0:
+#         vid += 1
+#
+# print("список - ", ls)
+# print(f"кількість додатніх = {dod}")
+# print(f"кількість відємних = {vid}")
+# print(f"кількість нульових = {ls.count(0)}")
 
-print("список - ", ls)
-print(f"кількість додатніх = {dod}")
-print(f"кількість відємних = {vid}")
-print(f"кількість нульових = {ls.count(0)}")
+#4. Випадкові числа в діапазоні від -5 до 5 розкласти на два списки: в один помістити тільки додатні, у другий - тільки від’ємні.
+# Числа, рівні нулю, ігнорувати. Вивести на екран всі згенеровані випадкові числа і елементи обох списків.
+
+n = int(input("input length of list - "))
+ls = [randrange(-5, 5) for _ in range(n)]
+pl, mn = [], []
+for i in ls:
+    if i>0:
+        pl.append(i)
+    elif i<0:
+        mn.append(i)
+
+print("all numbers - ", ls)
+print("dodatni - ", pl)
+print("videmni - ", mn)
