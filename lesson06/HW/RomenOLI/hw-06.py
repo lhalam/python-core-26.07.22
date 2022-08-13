@@ -67,10 +67,23 @@ from random import randrange
 #5. Заповнити список випадковими додатними і від’ємними цілими числами.
 # Вивести його на екран. Видалити з списку всі від’ємні елементи і знову вивести.
 
-ls = [randrange(-10,10) for _ in range(int(input("Input length of list - ")))]
+# ls = [randrange(-10,10) for _ in range(int(input("Input length of list - ")))]
+# print("original list - ", ls)
+# lst = ls.copy()
+# for i in range(len(ls)):
+#     if ls[i]<0:
+#         lst.remove(ls[i])
+# print("edited list - ", lst)
+
+#6. У другому списку зберегти індекси парних елементів першого списку.
+# Наприклад, якщо дано список зі значеннями 8, 3, 15, 6, 4, 2,
+# то другий треба заповнити значеннями 1, 4, 5, 6 (або 0, 3, 4, 5 - якщо індексація починається з нуля),
+# оскільки саме в цих позиціях першого масиву стоять парні числа.
+
+ls = [randrange(0, 30) for _ in range(int(input("input length of list - ")))]
 print("original list - ", ls)
-lst = ls.copy()
+lst = []
 for i in range(len(ls)):
-    if ls[i]<0:
-        lst.remove(ls[i])
-print("edited list - ", lst)
+    if ls[i] % 2 == 0:
+        lst.append(i)
+print("list of even indexes - ", lst)
