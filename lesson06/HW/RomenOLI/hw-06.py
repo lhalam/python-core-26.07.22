@@ -35,16 +35,16 @@ from random import randrange
 #3. Згенерувати 20 випадкових цілих чисел в діапазоні від -5 до 4, записати їх в список.
 # Порахувати кількість додатних, від’ємних і нульових елементів. Вивести на екран елементи списку і пораховані кількості.
 
-ls, dod, vid, zer = [],[],[],[]
+ls, dod, vid = [],0, 0
 for i in range(20):
     numb = randrange(-5, 4)
     ls.append(numb)
     if numb > 0:
-        dod.append(numb)
+        dod += 1
     elif numb < 0:
-        vid.append(numb)
-    else:
-        zer.append(numb)
-print(f"кількість додатніх = {len(dod)}, ось вони - {dod}")
-print(f"кількість відємних = {len(vid)}, ось вони - {vid}")
-print(f"кількість нульових = {len(zer)}, ось вони - {zer}")
+        vid += 1
+
+print("список - ", ls)
+print(f"кількість додатніх = {dod}")
+print(f"кількість відємних = {vid}")
+print(f"кількість нульових = {ls.count(0)}")
