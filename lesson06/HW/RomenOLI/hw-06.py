@@ -52,15 +52,25 @@ from random import randrange
 #4. Випадкові числа в діапазоні від -5 до 5 розкласти на два списки: в один помістити тільки додатні, у другий - тільки від’ємні.
 # Числа, рівні нулю, ігнорувати. Вивести на екран всі згенеровані випадкові числа і елементи обох списків.
 
-n = int(input("input length of list - "))
-ls = [randrange(-5, 5) for _ in range(n)]
-pl, mn = [], []
-for i in ls:
-    if i>0:
-        pl.append(i)
-    elif i<0:
-        mn.append(i)
+# ls = [randrange(-5, 5) for _ in range(int(input("input length of list - ")))]
+# pl, mn = [], []
+# for i in ls:
+#     if i>0:
+#         pl.append(i)
+#     elif i<0:
+#         mn.append(i)
+#
+# print("all numbers - ", ls)
+# print("dodatni - ", pl)
+# print("videmni - ", mn)
 
-print("all numbers - ", ls)
-print("dodatni - ", pl)
-print("videmni - ", mn)
+#5. Заповнити список випадковими додатними і від’ємними цілими числами.
+# Вивести його на екран. Видалити з списку всі від’ємні елементи і знову вивести.
+
+ls = [randrange(-10,10) for _ in range(int(input("Input length of list - ")))]
+print("original list - ", ls)
+lst = ls.copy()
+for i in range(len(ls)):
+    if ls[i]<0:
+        lst.remove(ls[i])
+print("edited list - ", lst)
