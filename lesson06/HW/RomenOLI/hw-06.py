@@ -80,10 +80,17 @@ from random import randrange
 # то другий треба заповнити значеннями 1, 4, 5, 6 (або 0, 3, 4, 5 - якщо індексація починається з нуля),
 # оскільки саме в цих позиціях першого масиву стоять парні числа.
 
+# ls = [randrange(0, 30) for _ in range(int(input("input length of list - ")))]
+# print("original list - ", ls)
+# lst = []
+# for i in range(len(ls)):
+#     if ls[i] % 2 == 0:
+#         lst.append(i)
+# print("list of even indexes - ", lst)
+
+#7. У списку знайти елементи, які в ньому зустрічаються тільки один раз, і вивести їх на екран.
+
 ls = [randrange(0, 30) for _ in range(int(input("input length of list - ")))]
-print("original list - ", ls)
-lst = []
-for i in range(len(ls)):
-    if ls[i] % 2 == 0:
-        lst.append(i)
-print("list of even indexes - ", lst)
+print("original list - ", * sorted(ls))
+tpl = set(ls)
+print("not repeated numbers in list - ", * tpl)
