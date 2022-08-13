@@ -1,6 +1,7 @@
 #1. Заповнити один список випадковими числами, інший - введеними з клавіатури числами,
 # в третій записати суми відповідних елементів перших двох. Вивести вміст списків на екран.
-# from random import randint
+from random import randint
+from random import randrange
 #
 # ls_one = list(range(randint(1,30)))
 #
@@ -21,12 +22,29 @@
 #2. Заповнити список дійсними числами введенням з клавіатури. Порахувати суму і добуток елементів списку.
 # Вивести на екран сам список, отримані суму і добуток його елементів.
 
-n = int(input("please, input the length of second list - "))
-ls, dob = [],1
-while n>0:
-    numb = int(input("please, input numer - "))
+# n = int(input("please, input the length of second list - "))
+# ls, dob = [],1
+# while n>0:
+#     numb = int(input("please, input numer - "))
+#     ls.append(numb)
+#     dob *= numb
+#     n -= 1
+# print(f"Summa = {sum(ls)}")
+# print(f"Dobutok = {dob}")
+
+#3. Згенерувати 20 випадкових цілих чисел в діапазоні від -5 до 4, записати їх в список.
+# Порахувати кількість додатних, від’ємних і нульових елементів. Вивести на екран елементи списку і пораховані кількості.
+
+ls, dod, vid, zer = [],[],[],[]
+for i in range(20):
+    numb = randrange(-5, 4)
     ls.append(numb)
-    dob *= numb
-    n -= 1
-print(f"Summa = {sum(ls)}")
-print(f"Dobutok = {dob}")
+    if numb > 0:
+        dod.append(numb)
+    elif numb < 0:
+        vid.append(numb)
+    else:
+        zer.append(numb)
+print(f"кількість додатніх = {len(dod)}, ось вони - {dod}")
+print(f"кількість відємних = {len(vid)}, ось вони - {vid}")
+print(f"кількість нульових = {len(zer)}, ось вони - {zer}")
