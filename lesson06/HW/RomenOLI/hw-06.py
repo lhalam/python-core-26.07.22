@@ -90,7 +90,16 @@ from random import randrange
 
 #7. У списку знайти елементи, які в ньому зустрічаються тільки один раз, і вивести їх на екран.
 
+# ls = [randrange(0, 30) for _ in range(int(input("input length of list - ")))]
+# print("original list - ", * sorted(ls))
+# tpl = set(ls)
+# print("not repeated numbers in list - ", * tpl)
+
+#8. У списку випадкових цілих чисел поміняти місцями мінімальний і максимальний елементи.
+
 ls = [randrange(0, 30) for _ in range(int(input("input length of list - ")))]
-print("original list - ", * sorted(ls))
-tpl = set(ls)
-print("not repeated numbers in list - ", * tpl)
+print("original list - ", * ls)
+print(f"max number - {max(ls)}, index - {ls.index(max(ls))}")
+print(f"min number - {min(ls)}, index - {ls.index(min(ls))}")
+ls[ls.index(max(ls))], ls[ls.index(min(ls))] = min(ls), max(ls)
+print("changed list - ", * ls)
