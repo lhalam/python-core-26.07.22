@@ -126,20 +126,37 @@ from random import randrange
 # Програма повинна обчислювати суму введених елементів кожного рядка і записувати її в останній рядок.
 # Наприкінці слід вивести отриману матрицю.
 
-mx = []
-width, height = 5, 4
-for i in range(width):i
+# mx = []
+# width, height = 5, 4
+# for i in range(width):i
+#     mx.append([])
+#     for j in range(height):
+#         if j == height-1:
+#             mx[i].append(sum(mx[i]))
+#         else:
+#             mx[i].append(int(input(f"input element {i,j} - ")))
+# print("resulting matrix:")
+# for i in mx:
+#     print(*i)
+
+#12. Знайти максимальний елемент серед мінімальних елементів стовпців матриці.
+
+mx, ls = [], []
+width, height = int(input("input width of matrix - ")), int(input("input height of matrix - "))
+print("input your - matrix:")
+for i in range(width):
     mx.append([])
     for j in range(height):
-        if j == height-1:
-            mx[i].append(sum(mx[i]))
+        mx[i].append(int(input(f"{i, j} = ")))
+        if i == 0:
+            ls.append(mx[i][j])
         else:
-            mx[i].append(int(input(f"input element {i,j} - ")))
+            ls[j] = min(mx[i][j], ls[j])
+
 print("resulting matrix:")
 for i in mx:
     print(*i)
-
-#12. Знайти максимальний елемент серед мінімальних елементів стовпців матриці.
+print(f"max element from min elements in a columns - {max(ls)}:")
 
 #13. Дві матриці заповнюються введенням з клавіатури.
 # елементи третьої матриці такої ж розмірності записати більші з відповідних елементів перших двох.
