@@ -109,17 +109,17 @@ from random import randrange
 
 #10. Сформувати матрицю з чисел від 0 до 999, вивести її на екран. Порахувати кількість двозначних чисел в ній.
 
-mx = []
-count = 0
-width, height = int(input("input width of matrix - ")),int(input("input height of matrix - "))
-for i in range(width):
-    mx.append([])
-    for j in range(height):
-        mx[i].append(randrange(0,999))
-        print(mx[i][j], end=" ")
-        count +=1 if 9<mx[i][j]<100 else 0
-    print(end="\n")
-print(f"double numbers = {count}")
+# mx = []
+# count = 0
+# width, height = int(input("input width of matrix - ")),int(input("input height of matrix - "))
+# for i in range(width):
+#     mx.append([])
+#     for j in range(height):
+#         mx[i].append(randrange(0,999))
+#         print(mx[i][j], end=" ")
+#         count +=1 if 9<mx[i][j]<100 else 0
+#     print(end="\n")
+# print(f"double numbers = {count}")
 
 #11. Матриця 5x4 заповнюється введенням з клавіатури (крім останніх елементів рядків).
 # Програма повинна обчислювати суму введених елементів кожного рядка і записувати її в останній рядок.
@@ -133,3 +133,13 @@ print(f"double numbers = {count}")
 #14. У матриці 10x10 поміняти значення елементів у кожному рядку, розташовані відповідно на головній та бічній діагоналях.
 
 #15. Змінити послідовність стовпців матриці так, щоб елементи її першого рядка були відсортовані за зростанням.
+
+mx = []
+width, height = int(input("input width of matrix - ")),int(input("input height of matrix - "))
+for i in range(width):
+    mx.append([])
+    for j in range(height):
+        mx[i].append(randrange(0,999))
+    if i == 0:
+        mx[i] = sorted(mx[i])
+    print(* mx[i])
