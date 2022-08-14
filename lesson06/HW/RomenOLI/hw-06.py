@@ -130,16 +130,36 @@ from random import randrange
 #13. Дві матриці заповнюються введенням з клавіатури.
 # елементи третьої матриці такої ж розмірності записати більші з відповідних елементів перших двох.
 
+mx_one, mx_two, mx_three = [], [], []
+width, height = int(input("input width of matrix - ")), int(input("input height of matrix - "))
+print("input your 1 - matrix:")
+for i in range(width):
+    mx_one.append([])
+    for j in range(height):
+        mx_one[i].append(int(input(f"{i, j} = ")))
+print("input your 2 - matrix:")
+for i in range(width):
+    mx_two.append([])
+    mx_three.append([])
+    for j in range(height):
+        mx_two[i].append(int(input(f"{i, j} = ")))
+        mx_three[i].append(max(mx_one[i][j], mx_two[i][j]))
+
+print("first matrix:", mx_one)
+print("second matrix:", mx_two)
+print("new best matrix:")
+print(*mx_three)
+
 #14. У матриці 10x10 поміняти значення елементів у кожному рядку, розташовані відповідно на головній та бічній діагоналях.
 
-mx = []
-width, height = 10, 10
-for i in range(width):
-    mx.append([])
-    for _ in range(height):
-        mx[i].append(randrange(0,999))
-    mx[i][0],mx[i][-1] = mx[i][-1], mx[i][0]
-    print(* mx[i])
+# mx = []
+# width, height = 10, 10
+# for i in range(width):
+#     mx.append([])
+#     for _ in range(height):
+#         mx[i].append(randrange(0,999))
+#     mx[i][0],mx[i][-1] = mx[i][-1], mx[i][0]
+#     print(* mx[i])
 
 #15. Змінити послідовність стовпців матриці так, щоб елементи її першого рядка були відсортовані за зростанням.
 
