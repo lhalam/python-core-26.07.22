@@ -97,9 +97,39 @@ from random import randrange
 
 #8. У списку випадкових цілих чисел поміняти місцями мінімальний і максимальний елементи.
 
-ls = [randrange(0, 30) for _ in range(int(input("input length of list - ")))]
-print("original list - ", * ls)
-print(f"max number - {max(ls)}, index - {ls.index(max(ls))}")
-print(f"min number - {min(ls)}, index - {ls.index(min(ls))}")
-ls[ls.index(max(ls))], ls[ls.index(min(ls))] = min(ls), max(ls)
-print("changed list - ", * ls)
+# ls = [randrange(0, 30) for _ in range(int(input("input length of list - ")))]
+# print("original list - ", * ls)
+# print(f"max number - {max(ls)}, index - {ls.index(max(ls))}")
+# print(f"min number - {min(ls)}, index - {ls.index(min(ls))}")
+# ls[ls.index(max(ls))], ls[ls.index(min(ls))] = min(ls), max(ls)
+# print("changed list - ", * ls)
+
+#9. Порахувати суми кожного рядка і кожного стовпця матриці.
+# Доповнити її стовпцем, який містить суми елементів рядків та рядком, елементами якого є суми елементів стовпців.
+
+#10. Сформувати матрицю з чисел від 0 до 999, вивести її на екран. Порахувати кількість двозначних чисел в ній.
+
+mx = []
+count = 0
+width, height = int(input("input width of matrix - ")),int(input("input height of matrix - "))
+for i in range(width):
+    mx.append([])
+    for j in range(height):
+        mx[i].append(randrange(0,999))
+        print(mx[i][j], end=" ")
+        count +=1 if 9<mx[i][j]<100 else 0
+    print(end="\n")
+print(f"double numbers = {count}")
+
+#11. Матриця 5x4 заповнюється введенням з клавіатури (крім останніх елементів рядків).
+# Програма повинна обчислювати суму введених елементів кожного рядка і записувати її в останній рядок.
+# Наприкінці слід вивести отриману матрицю.
+
+#12. Знайти максимальний елемент серед мінімальних елементів стовпців матриці.
+
+#13. Дві матриці заповнюються введенням з клавіатури.
+# елементи третьої матриці такої ж розмірності записати більші з відповідних елементів перших двох.
+
+#14. У матриці 10x10 поміняти значення елементів у кожному рядку, розташовані відповідно на головній та бічній діагоналях.
+
+#15. Змінити послідовність стовпців матриці так, щоб елементи її першого рядка були відсортовані за зростанням.
