@@ -132,14 +132,23 @@ from random import randrange
 
 #14. У матриці 10x10 поміняти значення елементів у кожному рядку, розташовані відповідно на головній та бічній діагоналях.
 
-#15. Змінити послідовність стовпців матриці так, щоб елементи її першого рядка були відсортовані за зростанням.
-
 mx = []
-width, height = int(input("input width of matrix - ")),int(input("input height of matrix - "))
+width, height = 10, 10
 for i in range(width):
     mx.append([])
-    for j in range(height):
+    for _ in range(height):
         mx[i].append(randrange(0,999))
-    if i == 0:
-        mx[i] = sorted(mx[i])
+    mx[i][0],mx[i][-1] = mx[i][-1], mx[i][0]
     print(* mx[i])
+
+#15. Змінити послідовність стовпців матриці так, щоб елементи її першого рядка були відсортовані за зростанням.
+
+# mx = []
+# width, height = int(input("input width of matrix - ")),int(input("input height of matrix - "))
+# for i in range(width):
+#     mx.append([])
+#     for j in range(height):
+#         mx[i].append(randrange(0,999))
+#     if i == 0:
+#         mx[i] = sorted(mx[i])
+#     print(* mx[i])
