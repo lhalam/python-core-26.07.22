@@ -41,11 +41,27 @@ import random
 # '4. Випадкові числа в діапазоні від -5 до 5 розкласти на два списки: в один помістити тільки додатні, у другий - тільки від’ємні. ' \
 # 'Числа, рівні нулю, ігнорувати. Вивести на екран всі згенеровані випадкові числа і елементи обох списків.'
 
-x_list, pos_list, neg_list = [], [], []
-for u in range(20):
-    n = random.randint(-5,5)
-    x_list.append(n)
-print(x_list)
-pos_list = [n for n in x_list if n > 0]
-neg_list = [n for n in x_list if n < 0]
-print(f"Positive list: {pos_list}, and negative: {neg_list}")
+# x_list, pos_list, neg_list = [], [], []
+# for u in range(20):
+#     n = random.randint(-5,5)
+#     x_list.append(n)
+# print(x_list)
+# pos_list = [n for n in x_list if n > 0]
+# neg_list = [n for n in x_list if n < 0]
+# print(f"Positive list: {pos_list}, and negative: {neg_list}")
+
+# '5. Заповнити список випадковими додатними і від’ємними цілими числами.
+# Вивести його на екран. Видалити з списку всі від’ємні елементи і знову вивести.'
+
+r_list = []
+for l in range(10):
+    n = random.randint(-100, 100)
+    r_list.append(n)
+print(r_list)
+p = []
+for g in r_list:
+    if g < 0:
+        p.append(g)
+for g in p:
+    r_list.remove(g)
+print(r_list)
