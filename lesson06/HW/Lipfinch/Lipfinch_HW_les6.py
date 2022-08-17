@@ -41,4 +41,11 @@ import random
 # '4. Випадкові числа в діапазоні від -5 до 5 розкласти на два списки: в один помістити тільки додатні, у другий - тільки від’ємні. ' \
 # 'Числа, рівні нулю, ігнорувати. Вивести на екран всі згенеровані випадкові числа і елементи обох списків.'
 
-pos_list, neg_list = [], []
+x_list, pos_list, neg_list = [], [], []
+for u in range(20):
+    n = random.randint(-5,5)
+    x_list.append(n)
+print(x_list)
+pos_list = [n for n in x_list if n > 0]
+neg_list = [n for n in x_list if n < 0]
+print(f"Positive list: {pos_list}, and negative: {neg_list}")
