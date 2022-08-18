@@ -53,15 +53,40 @@ import random
 # '5. Заповнити список випадковими додатними і від’ємними цілими числами.
 # Вивести його на екран. Видалити з списку всі від’ємні елементи і знову вивести.'
 
-r_list = []
-for l in range(10):
-    n = random.randint(-100, 100)
-    r_list.append(n)
-print(r_list)
-p = []
-for g in r_list:
-    if g < 0:
-        p.append(g)
-for g in p:
-    r_list.remove(g)
-print(r_list)
+# r_list = []
+# for l in range(10):
+#     n = random.randint(-100, 100)
+#     r_list.append(n)
+# print(r_list)
+# p = []
+# for g in r_list:
+#     if g < 0:
+#         p.append(g)
+# for g in p:
+#     r_list.remove(g)
+# print(r_list)
+
+# '6. У другому списку зберегти індекси парних елементів першого списку. Наприклад, якщо дано список зі значеннями 8, 3, 15, 6, 4, 2, ' \
+# 'то  другий треба заповнити значеннями 1, 4, 5, 6 (або 0, 3, 4, 5 - якщо індексація починається з нуля), оскільки саме в цих позиціях першого масиву стоять парні числа.'
+
+# r = []
+# for h in range(10):
+#     m = random.randint(-100, 100)
+#     r.append(m)
+# print(r)
+# r_ind = []
+# for i in r:
+#     if i % 2 == 0:
+#         r_ind.append(i)
+# print(r_ind)
+
+# '7. У списку знайти елементи, які в ньому зустрічаються тільки один раз, і вивести їх на екран.'
+
+list1 = []
+for i in range(10):
+    t = random.randint(1, 10)
+    list1.append(t)
+print(list1)
+list2 = [i for i in list1 if list1.count(i)==1]
+print(f'non repeated nums: {list2}')
+
