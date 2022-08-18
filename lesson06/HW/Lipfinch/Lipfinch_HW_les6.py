@@ -94,12 +94,10 @@ import random
 
 # another_list = [random.randint(1, 99) for _ in range(10)]
 # print(another_list)
-# min_val = min(another_list)
-# max_val = max(another_list)
+# min_val, max_val = min(another_list), max(another_list)
 # print(min_val, max_val)
-# another_list[another_list.index(max_val)], another_list[another_list.index(min_val)] == another_list[another_list.index(min_val)], another_list[another_list.index(max_val)]
-# swaped_list = []
-#
+# imx, imin = another_list.index(max_val), another_list.index(min_val)
+# another_list.remove(min_val), another_list.insert(imx, min_val), another_list.remove(max_val), another_list.insert(imin, max_val)
 # print(another_list)
 
 # '9. Порахувати суми кожного рядка і кожного стовпця матриці. Доповнити її стовпцем, який містить суми елементів рядків та рядком, елементами якого є суми елементів стовпців.'
