@@ -3,12 +3,12 @@ import random
 # 1. Заповнити один список випадковими числами, інший - введеними з клавіатури числами, в третій
 # записати суми відповідних елементів перших двох. Вивести вміст списків на екран.
 
-# random_list = [random.randint(-30, 30) for _ in range(10)]
-# user_list = [int(input("Enter number >>> ")) for _ in range(10)]
-# sum_elements = [random_list[i] + user_list[i] for i in range(len(random_list))]
-# print(f'Random list: {random_list}\n'
-#       f'User input list: {user_list}\n'
-#       f'Sum = {sum_elements}')
+random_list = [random.randint(-30, 30) for _ in range(10)]
+user_list = [int(input("Enter number >>> ")) for _ in range(10)]
+sum_elements = [random_list[i] + user_list[i] for i in range(len(random_list))]
+print(f'Random list: {random_list}\n'
+      f'User input list: {user_list}\n'
+      f'Sum = {sum_elements}')
 
 # 2. Заповнити список дійсними числами введенням з клавіатури. Порахувати суму
 # і добуток елементів списку. Вивести на екран сам список, отримані суму і добуток його елементів.
@@ -173,28 +173,28 @@ import random
 
 # 15. Змінити послідовність стовпців матриці так, щоб елементи її першого рядка були відсортовані за зростанням.
 
-n = 7
-matrix = [[random.randint(-9, 9) for _ in range(n)]for _ in range(n)]
-print('Before')
-for i in range(n):
-    for j in range(n):
-        print("{:4d}".format(matrix[i][j]), end='')
-    print()
-
-print('After')
-k = n-1
-while k > 0:
-    ind = 0
-    for j in range(k+1):
-        if matrix[0][j] > matrix[0][ind]:
-            ind = j
-    for i in range(n):
-        m = matrix[i][ind]
-        matrix[i][ind] = matrix[i][k]
-        matrix[i][k] = m
-    k -= 1
- 
-for i in range(n):
-    for j in range(n):
-        print("{:4d}".format(matrix[i][j]), end='')
-    print()
+# n = 7
+# matrix = [[random.randint(-9, 9) for _ in range(n)]for _ in range(n)]
+# print('Before')
+# for i in range(n):
+#     for j in range(n):
+#         print("{:4d}".format(matrix[i][j]), end='')
+#     print()
+#
+# print('After')
+# k = n-1
+# while k > 0:
+#     ind = 0
+#     for j in range(k+1):
+#         if matrix[0][j] > matrix[0][ind]:
+#             ind = j
+#     for i in range(n):
+#         m = matrix[i][ind]
+#         matrix[i][ind] = matrix[i][k]
+#         matrix[i][k] = m
+#     k -= 1
+#
+# for i in range(n):
+#     for j in range(n):
+#         print("{:4d}".format(matrix[i][j]), end='')
+#     print()
