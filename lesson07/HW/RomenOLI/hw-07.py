@@ -26,7 +26,7 @@
 #
 # print(arithmetic(int(input("input first number - ")), int(input("input first number - ")), input("input operation sign: ")))
 
-# Написати функцію is_year_leap, приймає 1 аргумент - рік, і повертає True, якщо рік високосний, і False в іншому випадку.
+#2. Написати функцію is_year_leap, приймає 1 аргумент - рік, і повертає True, якщо рік високосний, і False в іншому випадку.
 
 # def is_year_leap(year: int) -> bool:
 #     text = ""
@@ -44,17 +44,35 @@
 #
 # print(is_year_leap(int(input("input year - "))))
 
-# Написати функцію square, яка приймає 1 аргумент - сторону квадрата,
+#3. Написати функцію square, яка приймає 1 аргумент - сторону квадрата,
 # і повертає 3 значення (за допомогою кортежу): периметр квадрата, площу квадрата і діагональ квадрата.
 
-def square(side: int) -> tuple:
-    from math import sqrt
-    return side*4, side**2, side * sqrt(2)
-
-print(*square(int(input("input side of square - "))), sep="\n")
-
-# Написати функцію season, яка приймає 1 аргумент - номер місяця (від 1 до 12), і повертає пору року, якій цей місяць належить (зима, весна, літо або осінь).
+# def square(side: int) -> tuple:
+#     from math import sqrt
+#     return side*4, side**2, side * sqrt(2)
 #
+# print(*square(int(input("input side of square - "))), sep="\n")
+
+#4. Написати функцію season, яка приймає 1 аргумент - номер місяця (від 1 до 12), і повертає пору року,
+# якій цей місяць належить (зима, весна, літо або осінь).
+
+def season(month: int) ->str:
+    res = ""
+    match month:
+        case 12 | 1 | 2:
+            res = "зима"
+        case 3 | 4 | 5:
+            res = "весна"
+        case 6 | 7 | 8:
+            res = "літо"
+        case 9 | 10 | 11:
+            res = "осінь"
+        case _:
+            res = "wrong month number"
+    return res
+
+print(season(int(input("input month number (1-12) - "))))
+
 # Користувач робить внесок в розмірі n гривень строком на years років під 10% річних (щороку розмір його внеску збільшується на 10%. Ці гроші додаються до суми вкладу, і на них в наступному році теж будуть відсотки). Написати функцію bank, яка приймає аргументи n і years, і повертає суму, яка буде на рахунку користувача.
 #
 # Написати функцію is_prime, яка приймає 1 аргумент - число від 0 до 1000, і повертає True, якщо воно просте, і False - в іншому випадку.
