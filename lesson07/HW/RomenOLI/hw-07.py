@@ -28,24 +28,31 @@
 
 # Написати функцію is_year_leap, приймає 1 аргумент - рік, і повертає True, якщо рік високосний, і False в іншому випадку.
 
-def is_year_leap(year: int) -> bool:
-    text = ""
-    if year % 4 == 0:
-        if year % 100 != 0:
-            text = True
-        else:
-            if year % 400 == 0:
-                text = True
-            else:
-                text = False
-    else:
-        text = False
-    return text
-
-print(is_year_leap(int(input("input year - "))))
-
-# Написати функцію square, яка приймає 1 аргумент - сторону квадрата, і повертає 3 значення (за допомогою кортежу): периметр квадрата, площу квадрата і діагональ квадрата.
+# def is_year_leap(year: int) -> bool:
+#     text = ""
+#     if year % 4 == 0:
+#         if year % 100 != 0:
+#             text = True
+#         else:
+#             if year % 400 == 0:
+#                 text = True
+#             else:
+#                 text = False
+#     else:
+#         text = False
+#     return text
 #
+# print(is_year_leap(int(input("input year - "))))
+
+# Написати функцію square, яка приймає 1 аргумент - сторону квадрата,
+# і повертає 3 значення (за допомогою кортежу): периметр квадрата, площу квадрата і діагональ квадрата.
+
+def square(side: int) -> tuple:
+    from math import sqrt
+    return side*4, side**2, side * sqrt(2)
+
+print(*square(int(input("input side of square - "))), sep="\n")
+
 # Написати функцію season, яка приймає 1 аргумент - номер місяця (від 1 до 12), і повертає пору року, якій цей місяць належить (зима, весна, літо або осінь).
 #
 # Користувач робить внесок в розмірі n гривень строком на years років під 10% річних (щороку розмір його внеску збільшується на 10%. Ці гроші додаються до суми вкладу, і на них в наступному році теж будуть відсотки). Написати функцію bank, яка приймає аргументи n і years, і повертає суму, яка буде на рахунку користувача.
