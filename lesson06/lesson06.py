@@ -163,30 +163,51 @@
 # print(s1.intersection(s2))
 
 ## dict
-
-d = dict()
-print(d)
-d = {}
-print(d)
-d = {"a": 1, "b": 2, "c": {'a': [1, 21, 3, 4], 1: 25}}
-print(d)
-# d = {(1, 2, 3): 1}
+#
+# d = dict()
 # print(d)
-print([i for i in dir(dict) if not i.startswith("_")])
-# s = set([1,2,5,3,5,7,3,2,5,78,9,4,23,2,4,6])
-# s = sorted(list(s))
-# print(s)
-for key in d:
-    print(key, d[key])
-for item in d.items():
-    print(item)
-for key, value in d.items():
-    print(key, value)
-d["new"] = 25
-d["b"] = 25
-print(d)
-print(d["b"])
-print(d.get("b"))
-print(d.get("bb"))
-print(d.keys())
-print(d.values())
+# d = {}
+# print(d)
+# d = {"a": 1, "b": 2, "c": {'a': [1, 21, 3, 4], 1: 25}}
+# print(d)
+# # d = {(1, 2, 3): 1}
+# # print(d)
+# print([i for i in dir(dict) if not i.startswith("_")])
+# # s = set([1,2,5,3,5,7,3,2,5,78,9,4,23,2,4,6])
+# # s = sorted(list(s))
+# # print(s)
+# for key in d:
+#     print(key, d[key])
+# for item in d.items():
+#     print(item)
+# for key, value in d.items():
+#     print(key, value)
+# d["new"] = 25
+# d["b"] = 25
+# print(d)
+# print(d["b"])
+# print(d.get("b"))
+# print(d.get("bb"))
+# print(d.keys())
+# print(d.values())
+
+
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+print(matrix)
+for row in matrix:
+    print(row)
+
+for row in matrix:
+    for i in row:
+        print(i, end=" ")
+    print()
+
+for i in range(len(matrix)):
+    for j in range(len(matrix[i])):
+        print(matrix[i][j], end=" ")
+    print()
