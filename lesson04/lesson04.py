@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+
+
+a = 10
+if a < 10:
+    print("a is > 10")
+
+match a:
+    case a 5:
+        print("a=5")
+    case a 6:
+        print("a=6")
+    case a 7:
+=======
 # a = 5
 # b = 4
 #
@@ -66,17 +80,25 @@ match b:
     case 6:
         print("a=6")
     case 7:
+>>>>>>> 835bcd09fc8286b599e6c1c5ff99af2be314c331
         print("a=7")
     case _:
         print("default")
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 835bcd09fc8286b599e6c1c5ff99af2be314c331
 if b == 5:
     print("a=5")
 elif b == 6:
     print("a=6")
 elif b == 6:
+<<<<<<< HEAD
+    print()
+=======
     print("a=7")
 else:
     print("default")
+>>>>>>> 835bcd09fc8286b599e6c1c5ff99af2be314c331
