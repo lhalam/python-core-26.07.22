@@ -286,4 +286,28 @@ for i in range(len(matrix_1[0])):
     second_index -= 1
 print(matrix_1)
 
+# Task 15
+
+import random
+matrix_1 = []
+count_1 = 0
+count_2 = 0
+internal_matrix = []
+while count_1 != 4:
+    count_1 += 1
+    while count_2 != 4:
+        internal_matrix.append(random.randint(0, 999))
+        count_2 += 1
+    matrix_1.append(internal_matrix)
+    count_2 = 0
+    internal_matrix = []
+print(matrix_1)
+for index, i in enumerate(matrix_1[0]):
+    matrix_for_search = matrix_1[0][index:]
+    minimal = min(matrix_for_search)
+    index_minimal = matrix_for_search.index(minimal)
+    matrix_1[0][index], matrix_1[0][index_minimal+index] = matrix_1[0][index_minimal+index], matrix_1[0][index]
+    for j in range(1, len(matrix_1)-1):
+        matrix_1[j][index], matrix_1[j][index_minimal + index] = matrix_1[j][index_minimal + index], matrix_1[j][index]
+print(matrix_1)
 
