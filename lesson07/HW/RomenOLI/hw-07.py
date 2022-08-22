@@ -77,17 +77,25 @@
 # (щороку розмір його внеску збільшується на 10%. Ці гроші додаються до суми вкладу, і на них в наступному році теж будуть відсотки).
 # Написати функцію bank, яка приймає аргументи n і years, і повертає суму, яка буде на рахунку користувача.
 
-def bank(n, years):
-    for x in range(years):
-        n += (n * 10)/100
-    return n
-
-print("Your final amout is - ",bank(int(input("input amount of deposit- ")),int(input("input term of deposit- "))))
+# def bank(n, years):
+#     for x in range(years):
+#         n += (n * 10)/100
+#     return n
+#
+# print("Your final amout is - ",bank(int(input("input amount of deposit- ")),int(input("input term of deposit- "))))
 
 #6. Написати функцію is_prime, яка приймає 1 аргумент - число від 0 до 1000,
 # і повертає True, якщо воно просте, і False - в іншому випадку.
 
+def is_prime(n) -> bool:
+    count = 0
+    for i in range(1, n + 1):
+        if n%i == 0:
+            count += 1
+    return True if count == 2 else False
 
+
+print("Yes, its prime" if is_prime(int(input("input number from 0 - 1000: "))) else "No it is not prime")
 
 #7. Написати функцію date, яка приймає 3 аргументи - день, місяць і рік.
 # Повернути True, якщо така дата є в нашому календарі, і False - в іншому випадку.
