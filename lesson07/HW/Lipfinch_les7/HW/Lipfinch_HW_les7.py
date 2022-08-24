@@ -18,7 +18,7 @@
 #3. Написати функцію square, яка приймає 1 аргумент - сторону квадрата, і повертає 3 значення (за допомогою кортежу):
 # периметр квадрата, площу квадрата і діагональ квадрата.
 
-# def square():
+# def square(side):
 #     i
 
 
@@ -68,11 +68,7 @@ def date(day, month, year):
     if year <= 2022:
         if 1 <= month <= 12:
             if 1 <= day <= 31:
-                if month in [1, 3, 5, 7, 8, 10, 12] and day in range(1, 32):
-                    print('')
-                elif month in [4, 6, 9, 11] and day in range(1, 31):
-                    print('')
-                elif (year % 400 == 0 and month == 2 and day in range(1, 30)) or month == 2 and day in range(1, 29):
+                if month in [1, 3, 5, 7, 8, 10, 12] and day in range(1, 32) and month in [4, 6, 9, 11] and day in range(1, 31) and year % 400 == 0 and month == 2 and day in range(1, 30) or month == 2 and day in range(1, 29):
                     print('')
                 return True
     else:
