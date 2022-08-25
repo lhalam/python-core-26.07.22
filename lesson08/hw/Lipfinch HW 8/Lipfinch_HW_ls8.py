@@ -23,19 +23,34 @@
 #    - В конструкторі сформуйте fullname звичайним з’єднанням через пробіл first та last name.
 #    - В конструкторі сформуйте email з’єднанням first та last name через ‘.’ між ними та приєднуючи  ‘@company.com’ наприкінці.
 
-class Empoyee:
-    def __init__(self, first_name='', last_name=''):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.full_name = first_name + last_name
-        self.email = first_name + '.' + last_name + '@company.com'
+# class Empoyee:
+#     def __init__(self, first_name='', last_name=''):
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.full_name = first_name + last_name
+#         self.email = first_name + '.' + last_name + '@company.com'
+#     def __str__(self):
+#         return f'Emplpoyee:  {self.full_name} has email {self.email}'
+#
+# p1 = Empoyee('Eugene', ' Svyrydenko')
+# print(p1)
+
+#3. В класі Name визначте:
+   # - атрибути для first name та last name (fname та lname відповідно);
+   # - атрибут fullname що повертає first і last names;
+   # - атрибут initials який повертає ініціали (перші літери first та last name, розділених ‘.’ .
+
+class Name:
+    def __init__(self, fname, lname):
+        self.fname = fname
+        self.lname = lname
+        self.fullname = fname + lname
+        self.initials = fname[0] + '.' + lname[0]
     def __str__(self):
-        return f'Emplpoyee:  {self.full_name} has email {self.email}'
+        return f'Full name:{self.fullname}, and his initials are {self.initials}'
 
-p1 = Empoyee('Eugene', ' Svyrydenko')
-print(p1)
-
-
+p2 = Name("Eugene ", "Svyrydenko")
+print(p2)
 
 
 
