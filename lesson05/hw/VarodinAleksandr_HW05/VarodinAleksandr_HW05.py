@@ -45,7 +45,6 @@ for i in range(10):
             print('l',end='')
         print('w',end='')
     print()
-
 # Task 5
 
 p = 5
