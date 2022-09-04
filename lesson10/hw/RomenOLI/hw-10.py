@@ -25,31 +25,44 @@
 
 # 2. DayOfWeek
 
-def day_of_week(day_n):
-    try:
-        if not day_n.isnumeric():
-            raise TypeError("It is incorrect type!")
-        if int(day_n) not in range(1,8):
-            raise ValueError("not in range!")
-    except ValueError as err:
-        print("There is no such day of the week! Please try again. - ", err)
-    except TypeError as err:
-        print("There is no such day of the week! Please try again. - ", err)
-    else:
-        match int(day_n):
-            case 1:
-                print("Monday")
-            case 2:
-                print("Tuesday")
-            case 3:
-                print("Wednesday")
-            case 4:
-                print("Thursday")
-            case 5:
-                print("Friday")
-            case 6:
-                print("Saturday")
-            case 7:
-                print("Sunday")
+# def day_of_week(day_n):
+#     try:
+#         if not day_n.isnumeric():
+#             raise TypeError("It is incorrect type!")
+#         if int(day_n) not in range(1,8):
+#             raise ValueError("not in range!")
+#     except ValueError as err:
+#         print("There is no such day of the week! Please try again. - ", err)
+#     except TypeError as err:
+#         print("There is no such day of the week! Please try again. - ", err)
+#     else:
+#         match int(day_n):
+#             case 1:
+#                 print("Monday")
+#             case 2:
+#                 print("Tuesday")
+#             case 3:
+#                 print("Wednesday")
+#             case 4:
+#                 print("Thursday")
+#             case 5:
+#                 print("Friday")
+#             case 6:
+#                 print("Saturday")
+#             case 7:
+#                 print("Sunday")
+#
+# day_of_week(input("input number of day in a week - "))
 
-day_of_week(input("input number of day in a week - "))
+# 3. EvenOddNUmber
+
+def check_odd_even(numb):
+    try:
+        if not numb.isnumeric():
+            raise TypeError("incorrect type!")
+    except TypeError as err:
+        print("You entered not a number.")
+    else:
+        print("Entered number is even" if int(numb) % 2 == 0 else "Entered number is odd")
+
+check_odd_even(input("input number - "))
