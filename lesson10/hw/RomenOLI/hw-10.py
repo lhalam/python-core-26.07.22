@@ -68,17 +68,43 @@
 # check_odd_even(input("input number - "))
 
 # 4. DivideNumber
-def divide(numerator, denominator):
-    try:
-        if not numerator.isnumeric() or not denominator.isnumeric():
-            raise ValueError("Value Error! You did not enter a number!")
-        if denominator == '0':
-            raise ZeroDivisionError(f"Oops, {numerator} / 0 denominator, division by zero is error!!!")
-    except ValueError as err:
-        print("Valur Error! ", err)
-    except ZeroDivisionError as err:
-        print(err)
-    else:
-        print(f"Result is {int(numerator)/int(denominator)}")
+# def divide(numerator, denominator):
+#     try:
+#         if not numerator.isnumeric() or not denominator.isnumeric():
+#             raise ValueError("Value Error! You did not enter a number!")
+#         if denominator == '0':
+#             raise ZeroDivisionError(f"Oops, {numerator} / 0 denominator, division by zero is error!!!")
+#     except ValueError as err:
+#         print("Valur Error! ", err)
+#     except ZeroDivisionError as err:
+#         print(err)
+#     else:
+#         print(f"Result is {int(numerator)/int(denominator)}")
+#
+# divide(input("input numerator - "), input("input denominator - "))
 
-divide(input("input numerator - "), input("input denominator - "))
+# 5. NumberOfGroup
+class ToSmallNumberGroupError(Exception):
+    def __init__(self, data):
+        self.data = data
+    def __str__(self):
+        return repr(self.data)
+
+def check_number_group(number):
+    try:
+        if not number.isnumeric():
+            raise TypeError("You entered incorrect data. Please try again.")
+        if int(number) <= 10:
+            raise ToSmallNumberGroupError("Number of your group can't be less than 10")
+    except TypeError as err:
+        print(err)
+    except ToSmallNumberGroupError as err:
+        print("We obtain error: ", err)
+    else:
+        print(f"Number of your group {int(number)} is valid")
+
+check_number_group(input("input your number - "))
+
+# 6. PositiveNumber
+
+# 7. Equation
