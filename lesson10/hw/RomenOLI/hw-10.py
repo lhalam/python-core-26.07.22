@@ -56,13 +56,29 @@
 
 # 3. EvenOddNUmber
 
-def check_odd_even(numb):
-    try:
-        if not numb.isnumeric():
-            raise TypeError("incorrect type!")
-    except TypeError as err:
-        print("You entered not a number.")
-    else:
-        print("Entered number is even" if int(numb) % 2 == 0 else "Entered number is odd")
+# def check_odd_even(numb):
+#     try:
+#         if not numb.isnumeric():
+#             raise TypeError("incorrect type!")
+#     except TypeError as err:
+#         print("You entered not a number.")
+#     else:
+#         print("Entered number is even" if int(numb) % 2 == 0 else "Entered number is odd")
+#
+# check_odd_even(input("input number - "))
 
-check_odd_even(input("input number - "))
+# 4. DivideNumber
+def divide(numerator, denominator):
+    try:
+        if not numerator.isnumeric() or not denominator.isnumeric():
+            raise ValueError("Value Error! You did not enter a number!")
+        if denominator == '0':
+            raise ZeroDivisionError(f"Oops, {numerator} / 0 denominator, division by zero is error!!!")
+    except ValueError as err:
+        print("Valur Error! ", err)
+    except ZeroDivisionError as err:
+        print(err)
+    else:
+        print(f"Result is {int(numerator)/int(denominator)}")
+
+divide(input("input numerator - "), input("input denominator - "))
