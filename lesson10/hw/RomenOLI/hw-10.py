@@ -106,25 +106,44 @@
 # check_number_group(input("input your number - "))
 
 # 6. PositiveNumber
-class MyError(ArithmeticError):
-    def __init__(self, data):
-        self.data = data
-    def __str__(self):
-        return repr(self.data)
-
-def check_positive(number):
-    try:
-        if number.isalpha():
-            raise ValueError("Error type: ValueError!")
-        if int(number) < 0:
-            raise MyError(f"You input negative number: {number}. Try again.")
-    except MyError as err:
-        print(err)
-    except ValueError as err:
-        print(err)
-    else:
-        print(f"You input positive number: {number}")
-
-check_positive(input("input number - "))
+# class MyError(ArithmeticError):
+#     def __init__(self, data):
+#         self.data = data
+#     def __str__(self):
+#         return repr(self.data)
+#
+# def check_positive(number):
+#     try:
+#         if number.isalpha():
+#             raise ValueError("Error type: ValueError!")
+#         if int(number) < 0:
+#             raise MyError(f"You input negative number: {number}. Try again.")
+#     except MyError as err:
+#         print(err)
+#     except ValueError as err:
+#         print(err)
+#     else:
+#         print(f"You input positive number: {number}")
+#
+# check_positive(input("input number - "))
 
 # 7. Equation
+def solve_quadric_equation(a, b, c):
+    from math import sqrt
+    try:
+        if a.isalpha() or b.isalpha() or c.isalpha():
+            raise TypeError("Could not convert string to float")
+        if int(a) == 0:
+            raise ZeroDivisionError("Zero Division Error")
+        d = int(b)**2 - 4 * int(a) * int(c)
+        x1 = (-int(b) + sqrt(d))/2*int(a)
+        x2 = (-int(b) - sqrt(d))/2*int(a)
+        print(f"The solution are x1=({x1}) and x2=({x2})")
+    except ZeroDivisionError as err:
+        print(err)
+    except ValueError as err:
+        print("Math error - ", err)
+    except TypeError as err:
+        print(err)
+
+solve_quadric_equation(input("input a - "), input("input b - "), input("input c - "))
