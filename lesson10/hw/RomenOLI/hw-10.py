@@ -84,27 +84,47 @@
 # divide(input("input numerator - "), input("input denominator - "))
 
 # 5. NumberOfGroup
-class ToSmallNumberGroupError(Exception):
+# class ToSmallNumberGroupError(Exception):
+#     def __init__(self, data):
+#         self.data = data
+#     def __str__(self):
+#         return repr(self.data)
+#
+# def check_number_group(number):
+#     try:
+#         if not number.isnumeric():
+#             raise TypeError("You entered incorrect data. Please try again.")
+#         if int(number) <= 10:
+#             raise ToSmallNumberGroupError("Number of your group can't be less than 10")
+#     except TypeError as err:
+#         print(err)
+#     except ToSmallNumberGroupError as err:
+#         print("We obtain error: ", err)
+#     else:
+#         print(f"Number of your group {int(number)} is valid")
+#
+# check_number_group(input("input your number - "))
+
+# 6. PositiveNumber
+class MyError(ArithmeticError):
     def __init__(self, data):
         self.data = data
     def __str__(self):
         return repr(self.data)
 
-def check_number_group(number):
+def check_positive(number):
     try:
-        if not number.isnumeric():
-            raise TypeError("You entered incorrect data. Please try again.")
-        if int(number) <= 10:
-            raise ToSmallNumberGroupError("Number of your group can't be less than 10")
-    except TypeError as err:
+        if number.isalpha():
+            raise ValueError("Error type: ValueError!")
+        if int(number) < 0:
+            raise MyError(f"You input negative number: {number}. Try again.")
+    except MyError as err:
         print(err)
-    except ToSmallNumberGroupError as err:
-        print("We obtain error: ", err)
+    except ValueError as err:
+        print(err)
     else:
-        print(f"Number of your group {int(number)} is valid")
+        print(f"You input positive number: {number}")
 
-check_number_group(input("input your number - "))
-
-# 6. PositiveNumber
+check_positive(input("input number - "))
 
 # 7. Equation
