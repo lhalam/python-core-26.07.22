@@ -1,11 +1,17 @@
 #  Task 1
-# def divisor(num):
-#     ...
-#
-# three = divisor(3)
-# next(three)
-# next(three)
-# next(three)
+def divisor(num):
+    for x in range(1, num + 1):
+        if num / x == int(num / x):
+            print(x)
+            yield x
+    while True:
+        print('None')
+        yield None
+
+three = divisor(3)
+next(three)
+next(three)
+next(three)
 
 #  Task 2
 # def logger(func):
