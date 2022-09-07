@@ -14,10 +14,6 @@ def valid_email(email):
                         message = 'Email is valid'
                     else:
                         message = 'Email is not valid'
-            else:
-                message = 'Email is not valid'
-        else:
-            message = 'Email is not valid'
     except:
         message = 'Email is not valid'
     return message
