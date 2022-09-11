@@ -6,11 +6,11 @@
 #         if not (n % i):
 #             print(i)
 #             yield i
-#     else:
+#     while True:
 #         print("None")
 #         yield None
 #
-# three = divisor(5)
+# three = divisor(3)
 # next(three)
 # next(three)
 # next(three)
@@ -52,26 +52,26 @@
 # Each time words are different until the end of the list is reached.
 # Then words are taken from the initial list again.
 
-def randomWord(sp):
-    from random import randint
-    i = 0
-    dubl = sp.copy()
-    while i < len(sp):
-        r = randint(0, len(dubl)-1)
-        yield dubl[r]
-        dubl.remove(dubl[r])
-        i += 1
-    else:
-        i = 0
-        dubl = sp.copy()
-        yield dubl[randint(0, len(dubl)-1)]
-        dubl.remove(dubl[randint(0, len(dubl)-1)])
-
-
-ls = ['book', 'apple', 'word']
-books = randomWord(ls)
-print(next(books))
-print(next(books))
-print(next(books))
-print(next(books))
-print(next(books))
+# def randomWord(sp):
+#     from random import randint
+#     i = 0
+#     dubl = sp.copy()
+#     while i < len(sp):
+#         r = randint(0, len(dubl)-1)
+#         yield dubl[r]
+#         dubl.remove(dubl[r])
+#         i += 1
+#     else:
+#         i = 0
+#         dubl = sp.copy()
+#         yield dubl[randint(0, len(dubl)-1)]
+#         dubl.remove(dubl[randint(0, len(dubl)-1)])
+#
+#
+# ls = ['book', 'apple', 'word']
+# books = randomWord(ls)
+# print(next(books))
+# print(next(books))
+# print(next(books))
+# print(next(books))
+# print(next(books))
