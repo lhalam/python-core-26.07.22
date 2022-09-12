@@ -10,4 +10,3 @@ print(__name__)
 
 if __name__ == "__main__":
     print("temp2.py", __name__)
-
