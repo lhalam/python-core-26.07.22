@@ -3,25 +3,29 @@
 # буде повертатися повідомлення наступного формату: {other_person} is {older than / younger than / the same age as} me.
 
 class Person:
-    __my_name = "Ivan"
-    __my_age = 14
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-    def compare_age(self, name, age):
-        if self.__my_age > age:
-            print(f"{name} is younger than me.")
-        elif self.__my_age < age:
-            print(f"{name} is older than me.")
-        elif self.__my_age == age:
-            print(f"{name} is the same age as me.")
+    def compare_age(self, person):
+        if self.age > person.age:
+            print(f"{person.name} is younger than me.")
+        elif self.age < person.age:
+            print(f"{person.name} is older than me.")
+        elif self.age == person.age:
+            print(f"{person.name} is the same age as me.")
 
 
-p1 = Person()
-p2 = Person()
-p3 = Person()
+p1 = Person('Tom', 44)
+p2 = Person('Mick', 13)
+p3 = Person('Jon', 14)
 
-p1.compare_age('Tom', 44)
-p2.compare_age('Mick', 13)
-p3.compare_age('Jon', 14)
+p1.compare_age(p2)
+p1.compare_age(p3)
+p2.compare_age(p1)
+p2.compare_age(p3)
+p3.compare_age(p1)
+p3.compare_age(p2)
 
 # 2. Визначте атрибути fullname та email в класі Employee. При заданих first та last names:
 # В конструкторі сформуйте fullname звичайним з’єднанням через пробіл first та last name.
