@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+</head>
+<body>
+<div class="container">
+    <h2>Todo List</h2>
+    <div class="form-group">
+        <h3>Task:</h3>
+        <ul>
+            {% for todo in incomplete %}
+             <li style="font-size: 30pt">{{ todo.title }}: {{ todo.text }}
+                 <a href="{{ url_for('complete', pk=todo.id) }}">Mark as complete</a> </li>
+            {% endfor %}
+        </ul>
+        <h3>Complete:</h3>
+        <ul>
+            {% for todo in complete %}
+            <li style="font-size: 30pt">{{ todo.title }}: {{ todo.text }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>add a new todo list</div>
+    <form action="{{ url_for('add') }}" method="POST" >
+            <input class="form-control" type="text" name="todotitle">
+            <input class="form-control" type="text" name="todotext">
+            <input value="Add note" type="submit"  >
+    </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+</script>
+</body>
+</html>
