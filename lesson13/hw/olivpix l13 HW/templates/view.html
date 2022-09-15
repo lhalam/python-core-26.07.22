@@ -1,0 +1,24 @@
+{% extends "templ.html" %}
+
+{% block title %}Add new task{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div class="well">
+          <div class="media">
+            <a class="pull-left" href="#">
+                <img class="media-object" src="http://placekitten.com/150/150">
+            </a>
+            <div class="media-body">
+                <h4 class="media-heading">{{task.title}}</h4>
+              <p>{{task.description}}</p>
+              <ul class="list-inline list-unstyled">
+                <li><span>Do it till:  <i class="glyphicon glyphicon-calendar"></i> {{task.term}} </span></li>
+              </ul>
+           </div>
+        </div>
+    </div>
+    <a href="/"><button type="submit" class="btn btn-success">Close</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block navbar %}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+.fa, .far, .fas {
+    font-family: "Font Awesome 5 Free";
+}
+body{
+    font-size: 14px;
+    }
+.form-control {
+    font-size: 14px;
+    }
+.btn {
+    font-size: 14px;
+    }
+</style>
+
+<div class="navbar navbar-fixed-top" xmlns="http://www.w3.org/1999/html">
+  <!-- ... -->
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <form action="/add_task" method="get">
+<div class="input-group mb-3">
+  <input name="task" type="text" class="form-control" placeholder="Enter task name" aria-label="Enter task name" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button type="submit" class="btn btn-success">Add Task</button>
+  </div>
+</div>
+  </form>
+  <div class="row">
+    <div class="col-12">
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">№</th>
+            <th scope="col">Task Name</th>
+            <th scope="col">Term</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for task in lessons %}
+          <tr>
+            <th scope="row">{{task.id}}</th>
+            <td>{{task.title}}</td>
+            <td>{{task.term}}</td>
+            <td>{%if task.status=="TODO"%}
+              <a class="navbar-link" href="{{ url_for('changestatus', pk=task.id) }}"><button type="button" class="btn btn-primary">TODO</button></a>
+              {%endif%}
+              {%if task.status=="DONE"%}
+              <a class="navbar-link" href="{{ url_for('changestatus', pk=task.id) }}"><button type="button" class="btn btn-success">Success</button></a>
+              {%endif%}</td>
+            <td>
+              <a class="navbar-link" href="{{ url_for('view', pk=task.id) }}"><button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button></a>
+              <a class="navbar-link" href="{{ url_for('edit', pk=task.id) }}"> <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button></a>
+              <a class="navbar-link" href="{{ url_for('delete', pk=task.id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></a>
+
+            </td>
+          </tr>
+        {%endfor%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
