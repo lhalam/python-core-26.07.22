@@ -41,6 +41,14 @@ def list_tasks():
     return render_template("task/list_tasks.html", tasks=tasks)
 
 
+@app.route('/task/checked/<int:pk>', methods=['GET'])
+def checked_task(pk):
+    task = db.session.query(Tasks).get(pk)
+    task.done = not task.done
+    db.session.add(task)
+    db.session.commit()
+    return redirect(url_for('list_tasks'))
+
 @app.route('/task', methods=['POST', 'GET'])
 def add_task():
     if request.method == 'GET':

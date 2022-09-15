@@ -4,7 +4,7 @@
 
 {% block content %}
 
-    <table class="table table-hover" style="margin: 10px; width:80%;">
+    <table class="table table-hover" style="margin: 10px; width:60%">
         <caption style="font-size:20px">All my tasks</caption>
         <thead>
             <tr>
@@ -26,9 +26,14 @@
                 <td>{{ task.expiration_date }}</td>
                 <td>
                     <input type="checkbox" onclick="return false;" {% if task.done %} checked {% endif %}>
+                    <a class="btn btn-primary" href={{ url_for('checked_task', pk=task.id) }} >checked</a>
                 </td>
-                <td><a class="btn btn-primary" href={{ url_for('update_task', pk=task.id) }} >edit</a></td>
-                <td><a class="btn btn-primary" href={{ url_for('delete_task', pk=task.id) }} >del</a></td>
+                <td>
+                    <a class="btn btn-primary" href={{ url_for('update_task', pk=task.id) }} >edit</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href={{ url_for('delete_task', pk=task.id) }} >del</a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
