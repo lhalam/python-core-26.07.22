@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block navbar %}
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href={{ url_for('add_task') }}>Add</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href={{ url_for('list_tasks') }}>All Tasks</a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+  <div style="margin: 10px">
+      <h2>Hello, it`s your TASK MANAGER</h2>
+      <h3>You have {{tasks}} task`s</h3>
+  </div>
+{% endblock %}

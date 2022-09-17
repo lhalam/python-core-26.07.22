@@ -1,0 +1,47 @@
+{% extends "templ.html" %}
+
+{% block title %}Task{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  {%if cho==1%}
+    <form action="/add_task" method="POST">
+      {% endif %}
+        {%if cho==2%}
+    <form action="/edit/{{task.id}}" method="POST">
+      {% endif %}
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Task name</label>
+        {%if cho==1%}
+        <input name="title" type="text" value={{task}} class="form-control" id="exampleInputEmail1">
+           {% endif %}
+        {%if cho==2%}
+        <input name="title" type="text" value={{task.title}} class="form-control" id="exampleInputEmail1">
+           {% endif %}
+      </div>
+      <div class="mb-3">
+        <div class="form-group purple-border">
+        <label for="exampleFormControlTextarea4" class="form-label">Description</label>
+          {%if cho==1%}
+        <textarea  name="description" class="form-control" id="exampleFormControlTextarea4" rows="4"></textarea>
+          {% endif %}
+          {%if cho==2%}
+        <textarea  name="description" class="form-control" id="exampleFormControlTextarea4" rows="4">{{task.description}}</textarea>
+          {% endif %}
+        </div>
+
+      </div>
+      <div class="mb-3">
+        <label for="datetext" class="form-label">Date term</label>
+         {%if cho==1%}
+        <input name="term" type="date" class="form-control" id="datetext">
+        {% endif %}
+            {%if cho==2%}
+        <input name="term" value={{task.term}} type="date" class="form-control" id="datetext">
+        {% endif %}
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <a href="/"><button type="submit" class="btn btn-success">Close</button></a>
+</form>
+{% endblock %}
