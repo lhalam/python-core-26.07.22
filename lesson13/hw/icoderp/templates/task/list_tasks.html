@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th>id</th>
-                <th>Name</th>
+                <th>Title</th>
                 <th>Description</th>
                 <th>Date exp</th>
                 <th>Status</th>
@@ -25,7 +25,7 @@
                 <td>{{ task.description }}</td>
                 <td>{{ task.expiration_date }}</td>
                 <td>
-                    <input type="checkbox" onclick="return false;" {% if task.done %} checked {% endif %}>
+                    <input type="checkbox" onclick="return true;" {% if task.done %} checked {% endif %}>
                 </td>
                 <td><a class="btn btn-primary" href={{ url_for('update_task', pk=task.id) }} >Edit</a></td>
                 <td><a class="btn btn-primary" href={{ url_for('delete_task', pk=task.id) }} >Delete</a></td>
