@@ -1,0 +1,33 @@
+{% extends "home.html" %}
+
+{% block title %}Add User page{% endblock %}
+
+{% block content %}
+    <form action="{{ url_for('update_task', pk= task.id) }}" method="post" style="width: 300px">
+        <div class="form-group row">
+            <label for="colname" class="col-sm-2">Update task title:</label>
+            <div class="col-sm-10">
+               <input type="text" class="form-control  mr-sm-2" name="title" id="colname" value={{ task.title }}>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label for="colemail" class="col-sm-2">Update task description:</label>
+            <div class="col-sm-10">
+                <input type="description" class="form-control  mr-sm-2"  name="description" id="colemail" value={{ task.description }}>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="colpassword" class="col-sm-2" >Update task deadline:</label>
+            <div class="col-sm-10">
+                <input  type="date" class="form-control  mr-sm-2" name="deadline" id="colpassword" value={{ task.deadline }}>
+            </div>
+        </div>
+        <div class="form-check">
+            <label for="flexCheckIndeterminate">Update task progress:</label>
+                <input type="checkbox" name="is_done" id="flexCheckIndeterminate" {% if task.is_done %} checked {% endif %}>
+        </div>
+
+        <button class="btn btn-primary mb-2">Update</button>
+    </form>
+{% endblock %}
