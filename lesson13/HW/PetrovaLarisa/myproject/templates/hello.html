@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo list</title>
+</head>
+<body>
+
+  <h1>ToDo list</h1>
+  <nav class="navbar navbar-fixed-top">
+      <a class = "navbar-link" href = "/">Home</a>
+      <a class = "navbar-link" href = "{{url_for('add_task')}}">Add Task</a>
+
+  </nav>
+  <table class="table">
+      <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Deadline</th>
+      </tr>
+      </thead>
+      <tbody>
+          {% for task in tasks %}
+            <tr>
+               <th scope="row">{{task.id}}</th>
+                <td>{{ task.name }}</td>
+                <td>{{ task.description}}</td>
+                <td>{{ task.deadline }}</td>
+             </tr>
+
+          {% endfor %}
+
+      </tbody>
+
+  </table>
+ <ol>
+     {% for task in tasks %}
+           <li>{{ task.id }} </li>
+     {% endfor %}
+
+ </ol>
+     {% for task in tasks %}
+             <option value =" {{ task.id }}">{{task.name}} </option>
+     {% endfor %}
+</body>
+</html>
