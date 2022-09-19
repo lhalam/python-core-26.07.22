@@ -91,7 +91,7 @@ def delete_task(pk):
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return "Let's do some tasks"
 
 
 if __name__ == '__main__':
