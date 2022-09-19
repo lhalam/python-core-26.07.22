@@ -49,6 +49,7 @@ def checked_task(pk):
     db.session.commit()
     return redirect(url_for('list_tasks'))
 
+
 @app.route('/task', methods=['POST', 'GET'])
 def add_task():
     if request.method == 'GET':
