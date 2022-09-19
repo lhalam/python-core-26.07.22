@@ -30,9 +30,10 @@ class Tasks(db.Model):
 
 
 @app.route('/')
-def hello_world():
+def index():
     tasks = db.session.query(Tasks).all()
-    return render_template("home.html", tasks=len(tasks))
+    not_done = db.session.query(Tasks).filter(Tasks.done == False).all()
+    return render_template("home.html", tasks=len(tasks), not_done=len(not_done))
 
 
 @app.route('/tasks', methods=['GET'])

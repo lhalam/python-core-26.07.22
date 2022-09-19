@@ -1,5 +1,4 @@
 {% extends "bootstrap/base.html" %}
-{% block link %}
 {% block title %}This is an example page{% endblock %}
 
 {% block navbar %}
@@ -20,5 +19,6 @@
   <div style="margin: 10px">
       <h2>Hello, it`s your TASK MANAGER</h2>
       <h3>You have {{tasks}} task`s</h3>
+      <h3>{{not_done}} of them - you need done </h3>
   </div>
 {% endblock %}
