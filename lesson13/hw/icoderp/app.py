@@ -1,71 +1,99 @@
-from flask import Flask, request, render_template, url_for, redirect
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import func
-from sqlalchemy import desc
+from flask import Flask, request, render_template, redirect, url_for
 from flask_bootstrap import Bootstrap
-
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
 Bootstrap(app)
-# DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/lesson13'  # 'sqlite:///test.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'sfjhvdfbhvbkjsdbjbnjhuhrgbiut'
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///lesson13.db'
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.secret_key = 'qwerty'
 db = SQLAlchemy(app)
 
 
-class Note(db.Model):
-    id = db.Column(db.Integer(), primary_key=True)
-    title = db.Column(db.String(30))
-    text = db.Column(db.String())
-    complete = db.Column(db.Boolean())
-    date = db.Column(db.DateTime(timezone=True), default=func.now())
+class Tasks(db.Model):
+    __tablename__ = "tasks"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
+    expiration_date = db.Column(db.Date)
+    done = db.Column(db.Boolean)
+
+    def __init__(self, name, description, expiration_date, done=True):
+        self.name = name
+        self.description = description
+        self.expiration_date = expiration_date
+        self.done = done
+
+    def __repr__(self):
+        return self.name
 
 
 @app.route('/')
 def home():
-    incomplete = Note.query.filter_by(complete=False).order_by(desc(Note.date)).all()
-    complete = Note.query.filter_by(complete=True).order_by(desc(Note.date)).all()
-    return render_template('home.html', incomplete=incomplete, complete=complete)
+    tasks = db.session.query(Tasks).all()
+    return render_template("home.html", tasks=len(tasks))
 
 
-# add notes
-@app.route('/add', methods=['POST'])
-def add():
-    note = Note(title=request.form['todotitle'], text=request.form['todotext'], complete=False)
-    db.session.add(note)
-    db.session.commit()
-    return redirect(url_for('home'))
+@app.route('/tasks', methods=['GET'])
+def list_tasks():
+    tasks = db.session.query(Tasks).all()
+    return render_template("task/list_tasks.html", tasks=tasks)
 
 
-# completed task
-@app.route('/complete/<int:pk>')
-def complete(pk):
-    note = Note.query.filter_by(id=pk)
-    note.complete = True
-    db.session.commit()
-    return redirect(url_for('home'))
-
-
-def delete(pk):
-    task_to_delete = Note.query.get_or_404(pk)
-    try:
-        db.session.delete(task_to_delete)
+@app.route('/task', methods=['POST', 'GET'])
+def add_task():
+    if request.method == 'GET':
+        return render_template('task/add_task.html')
+    elif request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        expiration_date = datetime.strptime(request.form["expiration_date"], '%Y-%m-%d').date()
+        done = False
+        task = Tasks(name, description, expiration_date, done)
+        db.session.add(task)
         db.session.commit()
-        return redirect(url_for('home'))
-    except:
-        return 'There was an error while deleting that task'
+        return redirect(url_for('list_tasks'))
 
 
-def update(pk):
-    if request.method == 'POST':
-        note = Note(id=pk, title=request.form['todotitle'], text=request.form['todotext'], complete=False)
-        db.session.add(note)
+@app.route('/task/del/<int:pk>', methods=['GET', 'POST'])
+def delete_task(pk):
+    task = db.session.query(Tasks).get(pk)
+    if request.method == 'GET':
+        return render_template('task/delete_task.html', task=task)
+    elif request.method == 'POST':
+        db.session.delete(task)
         db.session.commit()
-        return redirect(url_for('home'))
+    return redirect(url_for('list_tasks'))
+
+
+@app.route('/task/<int:pk>', methods=['GET', 'POST'])
+def update_task(pk):
+    task = db.session.query(Tasks).get(pk)
+    if request.method == 'GET':
+        return render_template('task/update_task.html', task=task)
+    elif request.method == 'POST':
+        flag = False
+        if not task.name == request.form["name"]:
+            task.name = request.form["name"]
+            flag = True
+        if not task.description == request.form["description"]:
+            task.description = request.form["description"]
+            flag = True
+        if not task.expiration_date == datetime.strptime(request.form["expiration_date"], '%Y-%m-%d').date():
+            task.expiration_date = datetime.strptime(request.form["expiration_date"], '%Y-%m-%d').date()
+            flag = True
+        done = False if request.form.get("done") == None else True
+        if not task.done == done:
+            task.done = done
+            flag = True
+        if flag:
+            db.session.add(task)
+            db.session.commit()
+        return redirect(url_for('list_tasks'))
 
 
 if __name__ == "__main__":
     db.create_all()
-    app.run()  # debug=True
+    app.run()
