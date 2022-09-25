@@ -1,0 +1,26 @@
+{% extends "home.html" %}
+
+{% block title %}Update task{% endblock %}
+
+{% block content %}
+<div style="margin: 10px">
+    <form action="{{ url_for('update_task', pk=task.id) }}" method="post">
+        <div class="col-sm-3">
+            <label for="colName">Title:</label>
+            <input class="form-control form-control-sm" type="text" name="name" id="colName" value= {{task.name}}>
+
+            <label for="colDesc">Description:</label>
+            <textarea class="form-control form-control-sm" name="description" id="colDesc" > {{task.description}}</textarea>
+
+            <label for="colDate">Expiration date:</label>
+            <input class="form-control form-control-sm" type="date" name="expiration_date" id="colDate" value= {{task.expiration_date}}>
+
+            <label for="colStatus">Status:</label>
+            <input type="checkbox" name="done" id="colStatus"  {% if task.done %} checked {% endif %}>
+            <div style="float:right">
+                <button class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
