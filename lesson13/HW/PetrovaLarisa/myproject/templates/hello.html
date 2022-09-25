@@ -1,33 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ToDo list</title>
-</head>
-<body>
+{%extends "base.html" %}
+{% block title %}ToDo list{% endblock %}
+{% block header %}
+  <h1>TODO list</h1>
+{% endblock %}
+{% block navbar %}
 
-  <h1>ToDo list</h1>
-  <nav class="navbar navbar-fixed-top">
-      <a class = "navbar-link" href = "/">Home</a>
-      <a class = "navbar-link" href = "{{url_for('add_task')}}">Add Task</a>
+ <nav class="navbar navbar-fixed-top">
+<!--      <a class = "navbar-link" href = "/">Home</a>-->
+      <a class="btn btn-primary" href = "{{url_for('add_task')}}" role="button">Add Task</a>
 
   </nav>
+{% endblock %}
+{% block content %}
   <table class="table">
       <thead>
       <tr>
-          <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Description</th>
           <th scope="col">Deadline</th>
+          <th scope="col">Status</th>
       </tr>
       </thead>
       <tbody>
           {% for task in tasks %}
             <tr>
-               <th scope="row">{{task.id}}</th>
                 <td>{{ task.name }}</td>
                 <td>{{ task.description}}</td>
                 <td>{{ task.deadline }}</td>
+                <td>{% if task.complete == False %}
+                    <span>Not Complete</span>
+                {% else %}
+                    <span>Completed</span>
+                {% endif %}
+                </td>
+                <td><a class="btn btn-primary" href = "/update/{{task.id}}" role = "button">Update</a></td>
+                <td><a class="btn" href = "/delete/{{task.id}}" role = "button"><i class="fa-solid fa-trash"></i></a></td>
+                <td><a class="btn" href = "/edit/{{task.id}}" role = "button"><i class="fa-solid fa-edit"></i></a></td>
+<!--                <a class="btn btn-primary" href = "{{url_for('add_task')}}" role="button">Add Task</a>-->
              </tr>
 
           {% endfor %}
@@ -35,14 +44,5 @@
       </tbody>
 
   </table>
- <ol>
-     {% for task in tasks %}
-           <li>{{ task.id }} </li>
-     {% endfor %}
 
- </ol>
-     {% for task in tasks %}
-             <option value =" {{ task.id }}">{{task.name}} </option>
-     {% endfor %}
-</body>
-</html>
+{% endblock %}

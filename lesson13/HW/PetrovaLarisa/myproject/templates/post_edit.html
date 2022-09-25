@@ -1,6 +1,6 @@
 {% extends "base.html"%}
 
-{% block title %}Add task page{%endblock%}
+{% block title %}EDIT task page{%endblock%}
 {% block navbar %}
   <nav class="navbar navbar-fixed-top">
       <a class="btn btn-primary" role="button" href = "/">Home</a>
@@ -8,27 +8,27 @@
   </nav>
 {% endblock %}
 {% block content %}
-    <form action="{{url_for('add_task')}}" method="post">
+    <form method="post">
         <div class="form-group row">
             <label for = "col_name" class = "col-sm-2">Name of task</label>
             <div class="col-sm-10">
-                <input type = "text" class="form-control mr-sm-2" name="name" id="col_name" placeholder = "Enter Todo...">
+                <input type = "text" class="form-control mr-sm-2" name="name" id="col_name" value="{{task.name}}" placeholder = "Enter Todo...">
             </div>
 
         </div>
         <div class="form-group row">
             <label for = "col_description" class="col-sm-2">Description of task</label>
             <div class = "col-sm-10">
-                <input class = "form-control mr-sm-2" type = "text" name="description" id="col_description" placeholder="Enter description...">
+                <input class = "form-control mr-sm-2" type = "text" name="description" id="col_description" value="{{task.description}}" placeholder="Enter description...">
             </div>
         </div>
          <div class="form-group row">
             <label for = "col_deadline" class="col-sm-2">Deadline of task</label>
             <div class = "col-sm-10">
-                <input class = "form-control mr-sm-2" type = "date" name="deadline" id="col_deadline">
+                <input class = "form-control mr-sm-2" type = "date" name="deadline" id="col_deadline" value="{{task.deadline}}">
             </div>
         </div>
         <br>
-        <button type="submit" class = "btn btn-primary mb-2">Add</button>
+        <button type="submit" class = "btn btn-primary mb-2">Submit</button>
     </form>
 {% endblock %}
