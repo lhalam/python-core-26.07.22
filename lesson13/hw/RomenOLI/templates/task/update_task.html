@@ -2,6 +2,23 @@
 
 {% block title %}Update task{% endblock %}
 
+{% block navbar %}
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" " href={{ url_for('add_task') }}>Add</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="">Upd</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href={{ url_for('list_tasks') }}>All Tasks</a>
+  </li>
+</ul>
+{% endblock %}
+
 {% block content %}
 <div style="margin: 10px">
     <form action="{{ url_for('update_task', pk=task.id) }}" method="post">
@@ -15,8 +32,10 @@
             <label for="colDate">expiration date:</label>
             <input class="form-control form-control-sm" type="date" name="expiration_date" id="colDate" value= {{task.expiration_date}}>
 
-            <label for="colStatus">status:</label>
-            <input type="checkbox" name="done" id="colStatus"  {% if task.done %} checked {% endif %}>
+            <div class="form-check form-switch">
+                <label for="colStatus">status</label>
+                <input class="form-check-input" type="checkbox" name="done" id="colStatus"  {% if task.done %} checked {% endif %}>
+            </div>
             <div style="float:right">
                 <button class="btn btn-primary">UPD</button>
             </div>

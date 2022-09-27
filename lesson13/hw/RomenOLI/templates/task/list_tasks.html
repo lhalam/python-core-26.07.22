@@ -2,6 +2,20 @@
 
 {% block title %}All tasks{% endblock %}
 
+{% block navbar %}
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link"  href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href={{ url_for('add_task') }}>Add</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href={{ url_for('list_tasks') }}>All Tasks</a>
+  </li>
+</ul>
+{% endblock %}
+
 {% block content %}
 <div style="margin: 10px; width:60%">
     <table class="table table-hover" >
@@ -11,8 +25,9 @@
                 <th>id</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Date exp</th>
+                <th>Date expirat.</th>
                 <th>Status</th>
+                <th>Check. St.</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -25,7 +40,11 @@
                 <td>{{ task.description }}</td>
                 <td>{{ task.expiration_date }}</td>
                 <td>
-                    <input type="checkbox" onclick="return false;" {% if task.done %} checked {% endif %}>
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" role="switch" type="checkbox" onclick="return false;" {% if task.done %} checked {% endif %}>
+                    </div>
+                </td>
+                <td>
                     <a class="btn btn-primary" href={{ url_for('checked_task', pk=task.id) }} >checked</a>
                 </td>
                 <td>
