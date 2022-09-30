@@ -1,0 +1,14 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}This is an example page{% endblock %}
+
+{% block navbar %}
+<nav class="navbar ">
+    <a class="navbar-link" href="/">Home</a>
+    <a class="navbar-link" href={{ url_for('add_task') }}>Add task</a>
+    <a class="navbar-link" href={{ url_for('list_task') }}>Task list</a>
+</nav>
+{% endblock %}
+
+{% block content %}
+  <h1>Here is some task list</h1>
+{% endblock %}

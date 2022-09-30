@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, json, url_for, redirect
-from flask_bootstrap import Bootstrap
+from Flask_Bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)

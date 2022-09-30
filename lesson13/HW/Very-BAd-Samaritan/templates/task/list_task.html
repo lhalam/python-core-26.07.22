@@ -1,0 +1,44 @@
+{% extends "home.html" %}
+
+{% block title %}Task list{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Deadline</th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <th scope="row">{{ task.id }}</th>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>
+                    {{ task.deadline }}
+                </td>
+                <td>
+                    <form action="{{ url_for('update_task', pk= task.id) }}" method="post" style="width: 300px">
+                        <div class="form-check form-switch">
+                            <label for="inlineCheckbox1" class="form-check-label">Done</label>
+                            <input class="form-check-input" type="checkbox" id="checkboxNoLabel" name="is_done" {% if task.is_done %} checked {% endif %} >
+                        </div>
+                    </form>
+                    <a class="btn btn-primary" href={{ url_for('update_task', pk= task.id) }} role="button">Edit</a>
+<!--                    <a class="btn btn-primary" href={{ url_for('update_task', pk= task.id) }} data-method="delete" role="button">Delete</a>-->
+
+                    <form action="{{ url_for('delete_task', pk= task.id) }}" method="post" style="width: 250px">
+                        <input type="hidden" name="_method" value="'delete">
+                        <button class="btn btn-primary mb-2">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
